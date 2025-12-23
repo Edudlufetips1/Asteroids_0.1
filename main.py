@@ -1,5 +1,6 @@
-from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 import pygame
+
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
 from player import Player
 
