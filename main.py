@@ -5,6 +5,7 @@ from logger import log_state, log_event
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 
 
 def main():
@@ -15,10 +16,12 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
     Player.containers = (updatable, drawable)  # type: ignore
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable,)
+    Shot.containers = (shots, updatable, drawable)
 
     player = Player(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
     field = AsteroidField()
@@ -46,9 +49,7 @@ def main():
 
         pygame.display.flip()
 
-        # limit the framerate to 60 FPS
-        dt = clock.tick(60) / 1000
-
+        dt = clock.tick(60) / 1000         # limit the framerate to 60 FPS
 
 if __name__ == "__main__":
     main()
